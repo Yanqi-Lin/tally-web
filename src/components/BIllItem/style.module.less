@@ -1,0 +1,53 @@
+.item {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+  .headerDate {
+    height: 40px;
+    display: flex;
+    background-color: #f9f9f9;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+    div {
+      color: rgba(0, 0, 0, 0.9);
+    }
+    .date {
+      font-weight: bold;
+      font-size: 16px;
+    }
+    .money {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      > span {
+        margin-left: 20px;
+        display: flex;
+        flex-direction: row;
+        line-height: 20px;
+        img {
+          width: 20px;
+          margin-right: 4px;
+        }
+      }
+    }
+  }
+  :global {
+    .za-list {
+      .za-list-item__title {
+        display: flex;
+        align-items: center;
+      }
+      .za-list-item__description {
+        margin-top: 8px;
+      }
+    }
+  }
+  .itemIcon {
+    font-size: 24px;
+    color: #007fff;
+    vertical-align: -2px;
+    margin-right: 2px;
+  }
+}

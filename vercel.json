@@ -1,0 +1,8 @@
+{
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "http://api.chennick.wang/api/$1"
+    }
+  ]
+}
