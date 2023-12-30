@@ -5,8 +5,8 @@ import { Toast } from "zarm";
 const MODE = import.meta.env.MODE; // 环境变量,判断当前代码运行在开发环境还是生产环境。
 
 axios.defaults.baseURL =
-  //MODE == "development" ? "/api" : "http://api.chennick.wang"; //设置请求的基础路径
-  MODE == "development" ? "/api" : "https://tally-demo.vercel.app";
+  MODE == "development" ? "/api" : "http://api.chennick.wang"; //设置请求的基础路径
+//MODE == "development" ? "/api" : "https://tally-demo.vercel.app";
 axios.defaults.withCredentials = true;
 axios.defaults.headers["X-Requested-With"] = "XMLHttpRequest";
 axios.defaults.headers["Authorization"] = `${
