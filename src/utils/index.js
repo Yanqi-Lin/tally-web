@@ -3,12 +3,13 @@ import { baseUrl } from "config";
 
 const MODE = import.meta.env.MODE; // 环境变量
 
-export const imgUrlTrans = (url) => {
+export const imgUrlTrans = url => {
   if (url && url.startsWith("http")) {
     return url;
   } else {
     url = `${
-      MODE == "development" ? "http://api.chennick.wang" : baseUrl //api
+      MODE == "development" ? "http://47.120.51.252:7001" : baseUrl //api
+      // MODE == "development" ? "http://api.chennick.wang" : baseUrl //api
     }${url}`;
     return url;
   }
