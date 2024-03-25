@@ -1,9 +1,0 @@
-{
-  "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "http://api.chennick.wang/api/$1"
-    }
-  ],
-  "rewrites": [{ "source": "/:path*", "destination": "/index.html" }]
-}
