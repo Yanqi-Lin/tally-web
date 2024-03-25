@@ -2,7 +2,7 @@ module.exports = {
   apps: [
     {
       name: "tally-web",
-      script: "tally-web-server.js",
+      script: "tally-web-server.cjs",
     },
   ],
   deploy: {
@@ -13,7 +13,7 @@ module.exports = {
       repo: "git@github.com:Yanqi-Lin/tally-web.git",
       path: "/workspace/tally-web",
       "post-deploy":
-        "git reset --hard && git checkout master && git pull && npm i --production=false && npm run build:release && pm2 startOrReload ecosystem.config.js", // -production=false 下载全量包
+        "git reset --hard && git checkout master && git pull && npm i --production=false && npm run build:release && pm2 startOrReload ecosystem.config.cjs", // -production=false 下载全量包
       env: {
         NODE_ENV: "production",
       },
