@@ -9,6 +9,9 @@
     display: flex;
     justify-content: space-between;
     padding: 24px;
+    @media screen and (min-width: 1300px) {
+      padding: 24px 250px;
+    }
     .info {
       display: flex;
       flex-direction: column;
@@ -38,6 +41,9 @@
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 3px 2px 20px 10px rgba(0, 0, 0, 0.1);
+    @media screen and (min-width: 1300px) {
+      width: 430px;
+    }
   }
   .logout {
     width: 90%;
@@ -45,5 +51,8 @@
     bottom: 70px;
     left: 50%;
     transform: translateX(-50%);
+    @media screen and (min-width: 1300px) {
+      width: 430px;
+    }
   }
 }

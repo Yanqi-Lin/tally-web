@@ -99,7 +99,7 @@ export default function Login() {
                   type="text"
                   placeholder="请输入账号"
                   value={username}
-                  onChange={(e) => {
+                  onChange={e => {
                     setUsername(e.target.value);
                   }}
                 />
@@ -114,7 +114,7 @@ export default function Login() {
                   type="password"
                   placeholder="请输入密码"
                   value={password}
-                  onChange={(e) => setPassword(e.target.value)}
+                  onChange={e => setPassword(e.target.value)}
                 />
               </List.Item>
               <List.Item prefix={<CustomIcon type="mima" />} title="">
@@ -122,7 +122,7 @@ export default function Login() {
                   clearable
                   type="text"
                   placeholder="请输入验证码"
-                  onChange={(e) => setVerify(e.target.value)}
+                  onChange={e => setVerify(e.target.value)}
                 />
                 <div className={s.canvasTemplate}>
                   <LoadCanvasTemplate reloadText="换一个验证码" />
@@ -149,7 +149,7 @@ export default function Login() {
                   clearable
                   placeholder="请输入账号"
                   value={username}
-                  onChange={(e) => setUsername(e.target.value)}
+                  onChange={e => setUsername(e.target.value)}
                 />
               </List.Item>
               <List.Item
@@ -162,7 +162,7 @@ export default function Login() {
                   type="password"
                   placeholder="请输入密码"
                   value={password}
-                  onChange={(e) => setPassword(e.target.value)}
+                  onChange={e => setPassword(e.target.value)}
                 />
               </List.Item>
               <Button

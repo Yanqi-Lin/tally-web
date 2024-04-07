@@ -8,19 +8,15 @@
     #3fd3ff00
   );
   .head {
-    height: 200px;
+    height: 288px;
     background: url("//s.yezgea02.com/1616032174786/cryptocurrency.png")
       no-repeat center;
     background-size: 120%;
-    margin-bottom: 100px;
-    img {
-      width: 34px;
-      margin: 15px 0 0 15px;
-    }
+    margin-bottom: 50px;
   }
   .form {
     padding: 0 6px;
-    margin-top: 10px;
+    //margin-top: 10px;
     .loginBtn {
       margin-top: 20px;
     }
@@ -52,6 +48,21 @@
     div:has(> #reload_href) {
       margin-top: -10px;
       text-align: center;
+    }
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .auth {
+    .head {
+      background-size: 60%;
+      margin-bottom: 20px;
+    }
+  }
+  :global {
+    .za-tabs {
+      max-width: 340px;
+      margin: 0 auto;
     }
   }
 }
