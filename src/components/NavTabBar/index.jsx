@@ -3,11 +3,12 @@ import { useState } from "react";
 import { TabBar, Affix } from "zarm";
 import CustomIcon from "../CustomIcon";
 import { useNavigate, useLocation } from "react-router-dom";
+import "./style.module.less";
 
 const NavTabBar = ({ showNav }) => {
   const [activeKey, setActiveKey] = useState(useLocation().pathname);
   const navigateTo = useNavigate();
-  const changeTab = (path) => {
+  const changeTab = path => {
     setActiveKey(path);
     navigateTo(path);
   };

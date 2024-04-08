@@ -20,7 +20,7 @@ export default function App() {
   //const showNav = useMemo(() => needNav.includes(pathname), [pathname])
 
   return (
-    <div className="app">
+    <>
       <ConfigProvider primaryColor={"#007fff"} locale={zhCN}>
         <Routes>
           {routes.map((route, index) => (
@@ -33,6 +33,6 @@ export default function App() {
         </Routes>
       </ConfigProvider>
       <NavTabBar showNav={showNav} />
-    </div>
+    </>
   );
 }
