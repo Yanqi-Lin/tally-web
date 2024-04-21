@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Progress } from "zarm";
 import { WaitingCircle } from "@zarm-design/icons";
 import cx from "classnames";
@@ -37,10 +37,10 @@ const Data = () => {
 
     // 过滤支出和收入
     const expense_data = data.total_data
-      .filter((item) => item.pay_type == 1)
+      .filter(item => item.pay_type == 1)
       .sort((a, b) => b.number - a.number); // 过滤出账单类型为支出的项
     const income_data = data.total_data
-      .filter((item) => item.pay_type == 2)
+      .filter(item => item.pay_type == 2)
       .sort((a, b) => b.number - a.number); // 过滤出账单类型为收入的项
     setExpenseData(expense_data);
     setIncomeData(income_data);
@@ -48,19 +48,19 @@ const Data = () => {
   };
 
   // 切换收支构成类型
-  const changeTotalType = (type) => {
+  const changeTotalType = type => {
     setTotalType(type);
   };
 
   // 切换饼图收支类型
-  const changePieType = (type) => {
+  const changePieType = type => {
     setPieType(type);
     // 重绘饼图
     setPieChart(type == "expense" ? expenseData : incomeData);
   };
 
   // 绘制饼图方法
-  const setPieChart = (data) => {
+  const setPieChart = data => {
     if (window.echarts) {
       proportionChart = echarts.init(document.getElementById("proportion"));
       proportionChart.setOption({
@@ -70,14 +70,14 @@ const Data = () => {
         },
         // 图例
         legend: {
-          data: data.map((item) => item.type_name),
+          data: data.map(item => item.type_name),
         },
         series: [
           {
             name: "支出",
             type: "pie",
             radius: "55%",
-            data: data.map((item) => {
+            data: data.map(item => {
               return {
                 value: item.number,
                 name: item.type_name,
@@ -101,7 +101,7 @@ const Data = () => {
     monthRef.current && monthRef.current.show();
   };
 
-  const selectMonth = (item) => {
+  const selectMonth = item => {
     setCurrentMonth(item);
   };
 
@@ -141,7 +141,7 @@ const Data = () => {
           </div>
         </div>
         <div className={s.content}>
-          {(totalType == "expense" ? expenseData : incomeData).map((item) => (
+          {(totalType == "expense" ? expenseData : incomeData).map(item => (
             <div key={item.type_id} className={s.item}>
               <div className={s.left}>
                 <div className={s.type}>

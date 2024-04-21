@@ -88,7 +88,15 @@ export default function Login() {
 
   return (
     <div className={s.auth}>
-      <div className={s.head}></div>
+      <div
+        className={s.head}
+        // style={{
+        //   height: "288px",
+        //   marginBottom: "50px",
+        //   background:
+        //     "no-repeat center/120% url('https://s.yezgea02.com/1616032174786/cryptocurrency.png')",
+        // }}
+      ></div>
       <Tabs value={type} onChange={setType}>
         <Panel title="注册">
           <div className={s.form}>
@@ -132,7 +140,9 @@ export default function Login() {
                 <Checkbox checked={checked} onChange={setChecked} />
                 <label className={s.label}>
                   <span>同意</span>
-                  <a className={s.tiaokuan}>《掘掘手札条款》</a>
+                  <a className={s.tiaokuan} href="javascript:void(0)">
+                    《掘掘手札条款》
+                  </a>
                 </label>
               </List.Item>
               <Button block theme="primary" onClick={onSubmitRegister}>
