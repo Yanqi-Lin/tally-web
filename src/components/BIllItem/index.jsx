@@ -16,14 +16,14 @@ export default function BillItem({ bill }) {
   useEffect(() => {
     // pay_type:1 expense; 2 income
     const _income = bill.bills
-      .filter((i) => i.pay_type == 2)
+      .filter(i => i.pay_type == 2)
       .reduce((curr, item) => {
         curr += Number(item.amount);
         return curr;
       }, 0);
     setIncome(_income);
     const _expense = bill.bills
-      .filter((i) => i.pay_type == 1)
+      .filter(i => i.pay_type == 1)
       .reduce((curr, item) => {
         curr += Number(item.amount);
         return curr;
@@ -31,7 +31,7 @@ export default function BillItem({ bill }) {
     setExpense(_expense);
   }, [bill.bills]);
 
-  const goToDetail = (item) => {
+  const goToDetail = item => {
     navigateTo(`/detail?id=${item.id}`);
   };
 
@@ -41,18 +41,24 @@ export default function BillItem({ bill }) {
         <div className={s.date}>{bill.date}</div>
         <div className={s.money}>
           <span>
-            <img src="//s.yezgea02.com/1615953405599/zhi%402x.png" alt="支" />
+            <img
+              src="https://s.yezgea02.com/1615953405599/zhi%402x.png"
+              alt="支"
+            />
             <span>¥ {expense.toFixed(2)}</span>
           </span>
           <span>
-            <img src="//s.yezgea02.com/1615953405599/shou%402x.png" alt="收" />
+            <img
+              src="https://s.yezgea02.com/1615953405599/shou%402x.png"
+              alt="收"
+            />
             <span>¥ {income.toFixed(2)}</span>
           </span>
         </div>
       </div>
       <List>
         {bill &&
-          bill.bills.map((item) => {
+          bill.bills.map(item => {
             return (
               <List.Item
                 className={s.bill}

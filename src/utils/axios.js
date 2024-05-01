@@ -8,14 +8,29 @@ axios.defaults.baseURL =
   MODE == "development" ? "/api" : "http://47.120.51.252:7001"; //设置请求的基础路径
 
 //MODE == "development" ? "/api" : "http://api.chennick.wang"; //设置请求的基础路径
-//MODE == "development" ? "/api" : "https://tally-demo.vercel.app";
 axios.defaults.withCredentials = true;
 axios.defaults.headers["X-Requested-With"] = "XMLHttpRequest";
-axios.defaults.headers["Authorization"] = `${
-  localStorage.getItem("token") || null
-}`;
+// axios.defaults.headers["Authorization"] = `${
+//   localStorage.getItem("token") || null
+// }`;
 axios.defaults.headers.post["Content-Type"] = "application/json";
 
+// 请求拦截器
+axios.interceptors.request.use(
+  config => {
+    // 每个请求都重新获取最新的 token 设置到请求头中
+    const token = localStorage.getItem("token");
+    if (token) {
+      config.headers["Authorization"] = `${token}`;
+    }
+    return config;
+  },
+  error => {
+    return Promise.reject(error);
+  }
+);
+
+//响应拦截器
 axios.interceptors.response.use(res => {
   if (typeof res.data !== "object") {
     Toast.show({

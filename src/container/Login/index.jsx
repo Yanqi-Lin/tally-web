@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import s from "./style.module.less";
 import { List, Input, Checkbox, Button, Tabs, Toast } from "zarm";
+import { useNavigate } from "react-router-dom";
 import CustomIcon from "@/components/CustomIcon";
 import {
   loadCaptchaEnginge,
@@ -22,6 +23,7 @@ export default function Login() {
   const [password, setPassword] = useState(""); // 密码
   const [verify, setVerify] = useState(""); // 验证码
   const [checked, setChecked] = useState(false);
+  const navigateTo = useNavigate();
 
   useEffect(() => {
     loadCaptchaEnginge(4, "blue", "white");
@@ -78,7 +80,8 @@ export default function Login() {
         password,
       });
       localStorage.setItem("token", data.token);
-      window.location.href = "/";
+      navigateTo("/");
+      //window.location.href = "/";
     } catch (error) {
       Toast.show(error.msg);
       setUsername("");
