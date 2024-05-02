@@ -34,8 +34,16 @@ export default function Login() {
       Toast.show("请输入账号");
       return;
     }
+    if (!/\w{3,}/.test(username)) {
+      Toast.show("账号名应由三位以上字母、数字、下划线组成");
+      return;
+    }
     if (!password) {
       Toast.show("请输入密码");
+      return;
+    }
+    if (!/\w{6,}/.test(password)) {
+      Toast.show("密码应由六位以上字母、数字、下划线组成");
       return;
     }
     if (!verify) {
@@ -70,8 +78,18 @@ export default function Login() {
       Toast.show("请输入账号");
       return;
     }
+    if (!/\w{3,}/.test(username)) {
+      Toast.show("请输入正确的账号");
+      setUsername("");
+      return;
+    }
     if (!password) {
       Toast.show("请输入密码");
+      return;
+    }
+    if (!/\w{6,}/.test(password)) {
+      Toast.show("请输入正确的密码");
+      setPassword("");
       return;
     }
     try {
@@ -104,7 +122,10 @@ export default function Login() {
         <Panel title="注册">
           <div className={s.form}>
             <List bordered={false}>
-              <List.Item prefix={<CustomIcon type="zhanghao" />}>
+              <List.Item
+                prefix={<CustomIcon type="zhanghao" />}
+                description="最少3个字符，由英文字母、数字或下划线组成"
+              >
                 <Input
                   clearable
                   type="text"
@@ -118,7 +139,7 @@ export default function Login() {
               <List.Item
                 prefix={<CustomIcon type="mima" />}
                 title=""
-                // description="最少8个字符，由英文字母、数字组成"
+                description="最少8个字符，由英文字母、数字或下划线组成"
               >
                 <Input
                   clearable
@@ -143,7 +164,7 @@ export default function Login() {
                 <Checkbox checked={checked} onChange={setChecked} />
                 <label className={s.label}>
                   <span>同意</span>
-                  <a className={s.tiaokuan} href="javascript:void(0)">
+                  <a className={s.tiaokuan} href="#">
                     《掘掘手札条款》
                   </a>
                 </label>

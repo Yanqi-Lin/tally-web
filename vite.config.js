@@ -65,4 +65,13 @@ export default defineConfig({
       config: path.resolve(__dirname, "src/config"), // src 路径
     },
   },
+  build: {
+    // rollupOptions: {
+    //   manualChunks: id => {
+    //     if (id.includes("node_modules")) {
+    //       return "vendor";
+    //     }
+    //   },
+    // },
+  },
 });

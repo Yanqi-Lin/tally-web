@@ -26,7 +26,7 @@ const UserInfo = () => {
     setSignature(data.signature);
   };
 
-  const handleSelect = (file) => {
+  const handleSelect = file => {
     console.log("file.file", file);
     if (file && file.file.size > 200 * 1024) {
       Toast.show("上传头像不得超过 200 KB！！");
@@ -42,7 +42,7 @@ const UserInfo = () => {
         "Content-Type": "multipart/form-data",
         Authorization: token,
       },
-    }).then((res) => {
+    }).then(res => {
       setAvatar(imgUrlTrans(res.data));
     });
   };
@@ -86,7 +86,7 @@ const UserInfo = () => {
               type="text"
               value={signature}
               placeholder="请输入个性签名"
-              onChange={(e) => setSignature(e.target.value)}
+              onChange={e => setSignature(e.target.value)}
             />
           </div>
         </div>
