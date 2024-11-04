@@ -56,6 +56,10 @@ export default defineConfig({
         changeOrigin: true,
         rewrite: path => path.replace(/^\/api/, ""), // 将 /api 重写为空
       },
+      "/public": {
+        target: "http://47.120.51.252:7001",
+        changeOrigin: true,
+      },
     },
   },
   resolve: {
